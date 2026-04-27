@@ -315,6 +315,9 @@ wso2:
     # TOML configurations
     configurations:
       gatewayType: "Regular,APK,AWS,Azure,Kong"
+      # -- Internal hostname used for internal calls within the deployment.
+      # If set, this will be added as internal_hostname under [server] in deployment.toml.
+      internalHostname: ""
       encryption:
         # -- Symmetric encryption key shared by all nodes. This must be set explicitly and must be the same across all nodes before first startup.
         key: ""
@@ -809,6 +812,14 @@ wso2:
 
     # -- Node selector to deploy pod in selected node. Add label to the node and specify the label here.
     nodeSelector:
+
+    # -- Host aliases to be added to the pod's /etc/hosts file.
+    # hostAliases:
+    #   - ip: "127.0.0.1"
+    #     hostnames:
+    #       - "foo.local"
+    #       - "bar.local"
+    hostAliases: []
 
     # -- Environment variables for the deployment
     # Example:

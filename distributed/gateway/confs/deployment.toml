@@ -3,6 +3,9 @@ hostname = "{{- if .Values.kubernetes.gatewayAPI.enabled -}}{{ .Values.kubernete
 node_ip = "$env{NODE_IP}"
 server_role = "gateway-worker"
 offset = {{ .Values.wso2.apim.portOffset }}
+{{- if .Values.wso2.apim.configurations.internalHostname }}
+internal_hostname = "{{ .Values.wso2.apim.configurations.internalHostname }}"
+{{- end }}
 
 [user_store]
 type = {{ .Values.wso2.apim.configurations.userStore.type | quote }}

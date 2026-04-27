@@ -303,10 +303,11 @@ spec:
       nodeSelector:
         {{- toYaml .Values.wso2.deployment.nodeSelector | nindent 8 }}
       {{- end }}
+      {{- if .Values.wso2.deployment.hostAliases }}
+      hostAliases:
+        {{- toYaml .Values.wso2.deployment.hostAliases | nindent 8 }}
+      {{- end }}
       volumes:
-        - name: wso2am-conf
-          configMap:
-            name: {{ template "am-all-in-one.fullname" . }}-am-conf-2
             defaultMode: 0407
         - name: wso2am-entrypoint
           configMap:
