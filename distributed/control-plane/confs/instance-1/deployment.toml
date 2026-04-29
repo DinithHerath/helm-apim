@@ -5,6 +5,9 @@ offset = {{ .Values.wso2.apim.portOffset }}
 base_path = "${carbon.protocol}://${carbon.host}:${carbon.management.port}"
 #discard_empty_caches = false
 server_role = "default"
+{{- if .Values.wso2.apim.configurations.internalHostname }}
+internal_hostname = "{{ .Values.wso2.apim.configurations.internalHostname }}"
+{{- end }}
 
 [user_store]
 type = {{ .Values.wso2.apim.configurations.userStore.type | quote }}

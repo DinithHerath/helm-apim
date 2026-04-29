@@ -237,6 +237,9 @@ wso2:
         apimDBPasswordKey: "" # e.g apimDBPassword
         sharedDBPasswordKey: "" # e.g sharedDBPassword
         encryptionKeyKey: "" # e.g encryptionKey
+      # -- Internal hostname used for internal calls within the deployment.
+      # If set, this will be added as internal_hostname under [server] in deployment.toml.
+      internalHostname: ""
       userStore:
         # -- User store type. 
         # https://apim.docs.wso2.com/en/latest/administer/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-the-primary-user-store/
@@ -454,6 +457,14 @@ wso2:
 
     # -- Node selector to deploy pod in selected node. Add label to the node and specify the label here.
     nodeSelector:
+
+    # -- Host aliases to be added to the pod's /etc/hosts file.
+    # hostAliases:
+    #   - ip: "127.0.0.1"
+    #     hostnames:
+    #       - "foo.local"
+    #       - "bar.local"
+    hostAliases: []
 
     # Pod-specific configurations
     pod:
